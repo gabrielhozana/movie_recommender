@@ -125,11 +125,20 @@ Dilakukan Exploratory Data Analysis (EDA) untuk mendapatkan sebuah insight dari 
 ## **Data Preparation**
 
 Teknik yang digunakan pada tahapan ini, yaitu:
-1. `Drop`. Dengan menggunakan fungsi drop, maka dapat membuang atau menghapus kolom atau data yang diinginkan. Dalam hal ini terdapat data anomali pada dataset `movies_metadata` maka perlu membuang data anomali tersebut.
-2. `astype`. Astype berfungsi untuk mengubah tipe data. Dalam hal ini dilakukan perubahan tipe data pada dataset:
+1. `Drop`. Dengan menggunakan fungsi drop, maka dapat membuang atau menghapus kolom atau data yang diinginkan. T
+    * Terdapat data anomali pada dataset `movies_metadata` maka perlu membuang data anomali tersebut.
+    * Melakukan drop kolom/fitur `timestamp` pada dataframe `ratings` karena tidak akan dipakai.
+3. `astype`. Astype berfungsi untuk mengubah tipe data. Dalam hal ini dilakukan perubahan tipe data pada dataset:
     * movies_metadata: mengubah tipe data pada kolom/fitur `id` ke int karena tipe datanya berupa object.
     * link_small: mengubah tipe data pada kolom/fitur `tmdbId` ke int karena datanya bukan berupa desimal namun tipe datanya berupa float.
-4. `isin`. Isin digunakan untuk menyamakan dataframe dengan values sehingga mendapatkan output yang relevan dengan values. Pada tahap ini dilakukan penyamaan dataframe `movies_metadata` dengan `links_small` untuk mendapatkan sebuah dataframe baru dalam hal ini membuat dataframe `smd`. Jadi hanya mengambil sebagian data dari kesamaan dataset Metadata dengan Links Small.
-5. `fillna`. Digunakan untuk mengisi data yang missing value atau null. Pada kolom/fitur `tagline` terdapat nan sehingga diisi dengan `''`.
-6. Menggabungkan kolom/fitur pada dataframe `smd`. Tagline film adalah slogan atau catchphrases untuk film. Biasanya menyertakan permainan kata-kata yang cerdas, frasa pendek, satu atau dua kalimat. Tagline dapat merujuk pada plot film atau menyarankan pengalaman yang akan dialami sebagai penonton. Jadi, akan menggabungkan kolom/fitur tagline dengan kolom/fitur overview untuk memperoleh kolom/fitur description.
-7. 
+4. `isin`. Isin digunakan untuk menyamakan dataframe dengan values sehingga mendapatkan output yang relevan dengan values. Pada tahap ini dilakukan penyamaan dataframe `movies_metadata` dengan:
+    * `links_small` untuk mendapatkan sebuah dataframe baru dalam hal ini membuat dataframe `smd`. Jadi hanya mengambil sebagian data dari kesamaan dataset Metadata dengan Links Small.
+    * `crew, cast dan keywords` untuk mendapatkan sebuah dataframe baru `smd2`.
+6. `fillna`. Digunakan untuk mengisi data yang missing value atau null. Pada kolom/fitur `tagline` terdapat nan sehingga diisi dengan `''`.
+7. Menggabungkan kolom/fitur pada dataframe `smd`. Tagline film adalah slogan atau catchphrases untuk film. Biasanya menyertakan permainan kata-kata yang cerdas, frasa pendek, satu atau dua kalimat. Tagline dapat merujuk pada plot film atau menyarankan pengalaman yang akan dialami sebagai penonton. Jadi, akan menggabungkan kolom/fitur tagline dengan kolom/fitur overview untuk memperoleh kolom/fitur description.
+8. `merge`. Fungsi merge digunakan untuk menggabungkan dataset/dataframe. Akan menggunakan credits dan keywords, jadi akan digabungkan dataframe ini dengan dataframe metadata movies. 
+9. Ekstraksi data objek (json) `smd2`. Akan mengubah kolom/fitur cast, crew, keywords menjadi hanya berisi satu list dengan cast, crew, keywords bukan dictionary.
+10. Hapus Spasi dan Ubah ke Lowercase pada `smd2`. Dengan cara ini, mesin tidak akan bingung misalnya membedakan Johnny Depp dan Johnny Galecki. Dapat menggunakan fungsi `lower` dan `replace`.
+11. Mention `director` sebanyak 3 kali. Mention Sutradara 3 kali untuk memberikan bobot yang lebih besar dibandingkan dengan seluruh pemeran karena sutradara mempengaruhi kualitas film lebih dari peran lainnya.
+12. `Stemming` data. Jadi akan mengonversi setiap kata dengan teknik `stemming` sehingga kata-kata seperti Dog dan Dogs dianggap sama. Dalam hal ini dilakukan tahap stemming pada kolom `keywords` pada `smd2`.
+13. Train-Test-Split(). Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus dilakukan sebelum membuat model. Mempertahankan sebagian data yang ada untuk menguji seberapa baik generalisasi model terhadap data baru. 

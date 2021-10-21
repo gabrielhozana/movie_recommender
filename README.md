@@ -142,3 +142,15 @@ Teknik yang digunakan pada tahapan ini, yaitu:
 11. Mention `director` sebanyak 3 kali. Mention Sutradara 3 kali untuk memberikan bobot yang lebih besar dibandingkan dengan seluruh pemeran karena sutradara mempengaruhi kualitas film lebih dari peran lainnya.
 12. `Stemming` data. Jadi akan mengonversi setiap kata dengan teknik `stemming` sehingga kata-kata seperti Dog dan Dogs dianggap sama. Dalam hal ini dilakukan tahap stemming pada kolom `keywords` pada `smd2`.
 13. Train-Test-Split(). Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus dilakukan sebelum membuat model. Mempertahankan sebagian data yang ada untuk menguji seberapa baik generalisasi model terhadap data baru. 
+
+## **Modeling**
+
+###Model Development dengan Content Based Filtering
+
+Sebelumnya telah melakukan data preparation, dimana telah mendapatkan dua dataframe baru. Kedua dataframe yang didapatkan akan dibuat model berdasarkan kolom/fitur yang berbeda. Adapun dataframe yang didapatkan beserta kolom/fitur yang akan digunakan:
+
+* `smd`: Movie Overviews dan Taglines.
+* `smd2`: Movie Cast, Crew, Keywords dan Genre.
+
+**Movie Overviews dan Taglines**
+

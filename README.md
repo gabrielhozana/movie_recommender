@@ -145,7 +145,7 @@ Teknik yang digunakan pada tahapan ini, yaitu:
 
 ## **Modeling**
 
-###Model Development dengan Content Based Filtering
+### Model Development dengan Content Based Filtering
 
 Sebelumnya telah melakukan data preparation, dimana telah mendapatkan dua dataframe baru. Kedua dataframe yang didapatkan akan dibuat model berdasarkan kolom/fitur yang berbeda. Adapun dataframe yang didapatkan beserta kolom/fitur yang akan digunakan:
 

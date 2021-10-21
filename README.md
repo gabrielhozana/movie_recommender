@@ -129,4 +129,7 @@ Teknik yang digunakan pada tahapan ini, yaitu:
 2. `astype`. Astype berfungsi untuk mengubah tipe data. Dalam hal ini dilakukan perubahan tipe data pada dataset:
     * movies_metadata: mengubah tipe data pada kolom/fitur `id` ke int karena tipe datanya berupa object.
     * link_small: mengubah tipe data pada kolom/fitur `tmdbId` ke int karena datanya bukan berupa desimal namun tipe datanya berupa float.
-4. 
+4. `isin`. Isin digunakan untuk menyamakan dataframe dengan values sehingga mendapatkan output yang relevan dengan values. Pada tahap ini dilakukan penyamaan dataframe `movies_metadata` dengan `links_small` untuk mendapatkan sebuah dataframe baru dalam hal ini membuat dataframe `smd`. Jadi hanya mengambil sebagian data dari kesamaan dataset Metadata dengan Links Small.
+5. `fillna`. Digunakan untuk mengisi data yang missing value atau null. Pada kolom/fitur `tagline` terdapat nan sehingga diisi dengan `''`.
+6. Menggabungkan kolom/fitur pada dataframe `smd`. Tagline film adalah slogan atau catchphrases untuk film. Biasanya menyertakan permainan kata-kata yang cerdas, frasa pendek, satu atau dua kalimat. Tagline dapat merujuk pada plot film atau menyarankan pengalaman yang akan dialami sebagai penonton. Jadi, akan menggabungkan kolom/fitur tagline dengan kolom/fitur overview untuk memperoleh kolom/fitur description.
+7. 

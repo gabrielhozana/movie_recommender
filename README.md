@@ -124,4 +124,9 @@ Dilakukan Exploratory Data Analysis (EDA) untuk mendapatkan sebuah insight dari 
 
 ## **Data Preparation**
 
-
+Teknik yang digunakan pada tahapan ini, yaitu:
+1. `Drop`. Dengan menggunakan fungsi drop, maka dapat membuang atau menghapus kolom atau data yang diinginkan. Dalam hal ini terdapat data anomali pada dataset `movies_metadata` maka perlu membuang data anomali tersebut.
+2. `astype`. Astype berfungsi untuk mengubah tipe data. Dalam hal ini dilakukan perubahan tipe data pada dataset:
+    * movies_metadata: mengubah tipe data pada kolom/fitur `id` ke int karena tipe datanya berupa object.
+    * link_small: mengubah tipe data pada kolom/fitur `tmdbId` ke int karena datanya bukan berupa desimal namun tipe datanya berupa float.
+4. 

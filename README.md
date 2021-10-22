@@ -154,7 +154,7 @@ Sebelumnya telah melakukan data preparation, dimana telah mendapatkan dua datafr
 
 Dari kedua dataframe tersebut selanjutnya akan membuat sistem rekomendasi content based filtering dengan menghitung `cosine similarity` dari setiap data di dataset menggunakan fungsi [cosine_similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html). Sebelum itu di definisikan variabel vectorizer sebagai CountVectorizer(), dengan stop_words=’english’ berfungsi untuk menghilangkan kata semacam: i, you, the, a, this, is dan sejenisnya. Tujuannya sebelum menghitung cosine similarity, terlebih dahulu data diubah kedalam bentuk vektor. Kemudian hasil dari perhitungannya disimpan pada dataframe baru `cosine_sim` untuk dataframe `smd` dan `cosine_sim2` untuk dataframe `smd2`. 
 
-**Prediksi**
+**Hasil Prediksi**
 
 Untuk hasil rekomendasi yang diberikan, dibuat fungsi `get_recommendations` dimana fungsi tersebut akan memberikan rekomendasi terhadap suatu judul film dengan `description/overall` yang sama dengan judul film yang dimasukkan (inputan). Dengan mengambil beberapa data yang mirip (similarity) dan selanjutnya dari bobot (tingkat kesamaan) akan diurutkan dari yang tertinggi ke terendah dan memasukkannya ke variabel `sim_scores`. Terakhir memberikan sejumlah judul film yang direkomendasikan berdasarkan tingkat kemiripan dari judul masukan (input). 
 
@@ -205,3 +205,13 @@ Model KNN.
 
 Hasil rekomendasi film dari ketiga model yang dikembangkan, menghasilkan sejumlah rekomendasi film yang sama. Jika diperhatikan metrik dari ketiga model, nilainya metriknya tidak jauh berbeda.
 
+## **Evaluation**
+
+### Evaluation Model dengan Content Based Filtering
+
+Untuk mengukur kinerja model, maka digunakan metrik precision. 
+
+**Precision**
+Merupakan rasio prediksi benar positif dibandingkan dengan keseluruhan hasil yang diprediksi positf. Precission menjawab pertanyaan "Berapa persen judul film yang benar-benar meiliki tingkat kemiripan yang sama dari keseluruhan judul film yang diberikan?"
+
+### Evaluation Model dengan Collaborative Filtering

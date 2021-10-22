@@ -253,6 +253,7 @@ Dimana,
 * ŷi = nilai prediksi
 
 Untuk menerapkannya ke dalam kode adalah dengan menggunakan fungsi [accuracy.mse](https://surprise.readthedocs.io/en/stable/accuracy.html#surprise.accuracy.mse) dari library surprise. Fungsi tersebut menerima satu parameter `prediction` sebagai inputan data dalam hal ini data train/test untuk mengevaluasi model.
+> accuracy.mse(test, verbose =False)
 
 **Root Mean Squared Error (RMSE)**
 
@@ -271,5 +272,14 @@ Dimana,
 * ŷi = nilai prediksi
 
 Untuk menerapkannya ke dalam kode adalah dengan menggunakan fungsi [accuracy.rmse](https://surprise.readthedocs.io/en/stable/accuracy.html#surprise.accuracy.rmse) dari library surprise. Fungsi tersebut menerima satu parameter `prediction` sebagai inputan data dalam hal ini data train/test untuk mengevaluasi model.
+> accuracy.rmse(test, verbose =False)
 
-### Evaluation Model dengan Collaborative Filtering
+**Hasil Metrik MSE**
+
+![](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/11.png)
+
+**Hasil Metrik RMSE**
+
+![](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/10.png)
+
+Pada model baseline, menghasilkan nilai mse dan rmse terendah dibandingkan dengan kedua model lainnya.

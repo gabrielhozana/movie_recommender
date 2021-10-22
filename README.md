@@ -152,5 +152,8 @@ Sebelumnya telah melakukan data preparation, dimana telah mendapatkan dua datafr
 * `smd`: Movie Overviews dan Taglines.
 * `smd2`: Movie Cast, Crew, Keywords dan Genre.
 
-**Movie Overviews dan Taglines**
+Dari kedua dataframe tersebut selanjutnya akan membuat sistem rekomendasi content based filtering dengan menghitung `cosine similarity` dari setiap data di dataset menggunakan fungsi [cosine_similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html). Sebelum itu di definisikan variabel vectorizer sebagai CountVectorizer(), dengan stop_words=’english’ berfungsi untuk menghilangkan kata semacam: i, you, the, a, this, is dan sejenisnya. Tujuannya sebelum menghitung cosine similarity, terlebih dahulu data diubah kedalam bentuk vektor. Kemudian hasil dari perhitungannya disimpan pada dataframe baru `cosine_sim` untuk dataframe `smd` dan `cosine_sim2` untuk dataframe `smd2`. 
+
+Untuk hasil rekomendasi yang diberikan, dibuat fungsi get_recommendations dimana fungsi tersebut akan memberikan rekomendasi terhadap suatu judul film dengan description/overall yang sama dengan judul film yang dimasukkan (inputan).
+
 

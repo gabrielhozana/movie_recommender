@@ -157,8 +157,13 @@ Dari kedua dataframe tersebut selanjutnya akan membuat sistem rekomendasi conten
 Untuk hasil rekomendasi yang diberikan, dibuat fungsi `get_recommendations` dimana fungsi tersebut akan memberikan rekomendasi terhadap suatu judul film dengan `description/overall` yang sama dengan judul film yang dimasukkan (inputan). Dengan mengambil beberapa data yang mirip (similarity) dan selanjutnya dari bobot (tingkat kesamaan) akan diurutkan dari yang tertinggi ke terendah dan memasukkannya ke variabel `sim_scores`. Terakhir memberikan sejumlah judul film yang direkomendasikan berdasarkan tingkat kemiripan dari judul masukan (input). 
 
 Untuk lebih jelasnya dapat dilihat pada gambar dibawah ini. Gambar dibawah ini merupakan hasil rekomendasi sejumlah film yang mungkin memiliki tingkat kemiripan yang sama terdapat judul masukan. Dataframe yang digunakan berasal dari `smd` atau description dari film (gabungan movie overview dan tagline).
+
+Diberikan sebuah inputan judul berupa `The Dark Knight` dan hasilnya diberikan beberapa rekomendasi film yang mirip dengan mengurutkan tingkat kemiripan dari tertinggi ke rendah.
+
 ![Prediksi smd](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/2.png)
 <br>
 Untuk hasil rekomendasi `smd2` dapat dilihat pada gambar dibawah ini.
+
+Diberikan sebuah inputan judul berupa `Mean Girls'
 
 ![Prediksi smd2](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/4.png)

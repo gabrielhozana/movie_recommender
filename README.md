@@ -198,9 +198,11 @@ Model Baseline.
 ![Baseline](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/6.png)
 
 Model SVD.
+
 ![SVD](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/7.png)
 
 Model KNN.
+
 ![KNN](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/8.png)
 
 Hasil rekomendasi film dari ketiga model yang dikembangkan, menghasilkan sejumlah rekomendasi film yang sama. Jika diperhatikan metrik dari ketiga model, nilainya metriknya tidak jauh berbeda.
@@ -212,6 +214,26 @@ Hasil rekomendasi film dari ketiga model yang dikembangkan, menghasilkan sejumla
 Untuk mengukur kinerja model, maka digunakan metrik precision. 
 
 **Precision**
-Merupakan rasio prediksi benar positif dibandingkan dengan keseluruhan hasil yang diprediksi positf. Precission menjawab pertanyaan "Berapa persen judul film yang benar-benar meiliki tingkat kemiripan yang sama dari keseluruhan judul film yang diberikan?"
+
+Merupakan rasio prediksi benar positif (True Positif) dibandingkan dengan keseluruhan hasil yang diprediksi positf. Precission menjawab pertanyaan "Berapa persen judul film yang benar-benar memiliki tingkat kemiripan yang sama dari keseluruhan judul film yang diberikan?" Untuk formula dapat ditulis sebagai berikut [Medium](https://towardsdatascience.com/recommendation-systems-models-and-evaluation-84944a84fb8e):
+
+![Precision](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/9.png)
+
+Precision memiliki keuntungan karena tidak memerlukan perkiraan ukuran kumpulan dokumen yang relevan tetapi kelemahannya adalah paling tidak stabil dari ukuran evaluasi yang umum digunakan dan rata-rata kurang baik, karena jumlah total dokumen yang relevan untuk kueri memiliki pengaruh kuat pada presisi di k.
+  
+Untuk penerapan pada kode dibuat sebuah fungsi `precision` yang dimana fungsi tersebut menerima dua parameter, parameter pertama untuk mendapatkan banyaknya rekomendasi film dan parameter kedua untuk mendapatkan jumlah rekomendasi film yang sesuai. Berikut adalah hasil penerapannya pada model:
+
+
+**cosine_sim/smd**
+
+![](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/3.png)
+
+Jika dilihat pada gambar diatas, hasil precisionnya adalah 0.2 yang artinya hanya 20% dari keseluruhan film yang direkomendasikan yang sesuai dengan tingkat kesamaan judul inputan yang diberikan.
+
+**cosine_sim2/smd2**
+
+![](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/5.png)
+
+Jika dilihat pada gambar diatas, hasil precisionnya adalah 1.0 yang artinya 100% dari keseluruhan film yang direkomendasikan yang sesuai dengan tingkat kesamaan judul inputan yang diberikan.
 
 ### Evaluation Model dengan Collaborative Filtering

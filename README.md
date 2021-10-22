@@ -154,6 +154,8 @@ Sebelumnya telah melakukan data preparation, dimana telah mendapatkan dua datafr
 
 Dari kedua dataframe tersebut selanjutnya akan membuat sistem rekomendasi content based filtering dengan menghitung `cosine similarity` dari setiap data di dataset menggunakan fungsi [cosine_similarity](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html). Sebelum itu di definisikan variabel vectorizer sebagai CountVectorizer(), dengan stop_words=’english’ berfungsi untuk menghilangkan kata semacam: i, you, the, a, this, is dan sejenisnya. Tujuannya sebelum menghitung cosine similarity, terlebih dahulu data diubah kedalam bentuk vektor. Kemudian hasil dari perhitungannya disimpan pada dataframe baru `cosine_sim` untuk dataframe `smd` dan `cosine_sim2` untuk dataframe `smd2`. 
 
+**Prediksi**
+
 Untuk hasil rekomendasi yang diberikan, dibuat fungsi `get_recommendations` dimana fungsi tersebut akan memberikan rekomendasi terhadap suatu judul film dengan `description/overall` yang sama dengan judul film yang dimasukkan (inputan). Dengan mengambil beberapa data yang mirip (similarity) dan selanjutnya dari bobot (tingkat kesamaan) akan diurutkan dari yang tertinggi ke terendah dan memasukkannya ke variabel `sim_scores`. Terakhir memberikan sejumlah judul film yang direkomendasikan berdasarkan tingkat kemiripan dari judul masukan (input). 
 
 Untuk lebih jelasnya dapat dilihat pada gambar dibawah ini. Gambar dibawah ini merupakan hasil rekomendasi sejumlah film yang mungkin memiliki tingkat kemiripan yang sama terdapat judul masukan. Dataframe yang digunakan berasal dari `smd` atau description dari film (gabungan movie overview dan tagline).
@@ -164,6 +166,42 @@ Diberikan sebuah inputan judul berupa `The Dark Knight` dan hasilnya diberikan b
 <br>
 Untuk hasil rekomendasi `smd2` dapat dilihat pada gambar dibawah ini.
 
-Diberikan sebuah inputan judul berupa `Mean Girls'
+Diberikan sebuah inputan judul berupa `Mean Girls`.
 
 ![Prediksi smd2](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/4.png)
+
+### Model Development dengan Collaborative Filtering
+
+Pada tahap ini, akan dikembangkan model machine learning dengan tiga algoritma. Kemudian akan mengevaluasi performa masing-masing algoritma. Dalam kasus kali ini, model harus menggunakan algoritma sistem rekomendasi karena hasil output yang diinginkan adalah sejumlah rekomendasi film.
+
+Menggunakan library [surprise](https://surprise.readthedocs.io/en/stable/index.html) untuk sistem rekomendasi. Algoritma yang digunakan, yaitu:
+* BaselineOnly
+* SVD
+* KNN
+
+**Metrik**
+
+Model |	RMSE | MSE
+---|---|---
+BaselineOnly | 0.897450 | 0.805416
+SVD | 0.900867 | 0.811562
+KNN | 0.961606 | 0.924686
+
+Dapat dilihat bahwa model BaselineOnly menghasilkan nilai MSE maupun nilai RMSE yang rendah.
+
+**Hasil Prediksi**
+
+Memberikan sejumlah rekomendasi film terdahap user 450.
+
+Model Baseline.
+
+![Baseline](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/6.png)
+
+Model SVD.
+![SVD](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/7.png)
+
+Model KNN.
+![KNN](https://raw.githubusercontent.com/gabrielhozana/movie_recommender/main/photo/8.png)
+
+Hasil rekomendasi film dari ketiga model yang dikembangkan, menghasilkan sejumlah rekomendasi film yang sama. Jika diperhatikan metrik dari ketiga model, nilainya metriknya tidak jauh berbeda.
+

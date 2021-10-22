@@ -237,3 +237,39 @@ Jika dilihat pada gambar diatas, hasil precisionnya adalah 0.2 yang artinya hany
 Jika dilihat pada gambar diatas, hasil precisionnya adalah 1.0 yang artinya 100% dari keseluruhan film yang direkomendasikan yang sesuai dengan tingkat kesamaan judul inputan yang diberikan.
 
 ### Evaluation Model dengan Collaborative Filtering
+
+**Mean Squared Error (MSE)** 
+
+Mean Squared Error (MSE) adalah Rata-rata Kesalahan kuadrat diantara nilai aktual dan nilai prediksi. Metode Mean Squared Error secara umum digunakan untuk mengecek estimasi berapa nilai kesalahan pada prediksi. Nilai Mean Squared Error yang rendah atau nilai mean squared error mendekati nol menunjukkan bahwa hasil prediksi sesuai dengan data aktual dan bisa dijadikan untuk perhitungan prediksi di periode mendatang. Metode Mean Squared Error biasanya digunakan untuk mengevaluasi metode pengukuran dengan model regressi.
+
+Kelebihan MSE yaitu sederhana dalam perhitungan. Sedangkan kelemahan yang dimiliki MSE adalah akurasi hasil prediksi sangat kecil karena tidak memperhatikan apakah hasil prediksi lebih besar atau lebih kecil dibandingkan kenyataannya
+
+![MSE](https://lindevs.com/wp-content/uploads/2020/10/formula_to_calculate_mse.png)
+<!-- <img src="https://lindevs.com/wp-content/uploads/2020/10/formula_to_calculate_mse.png" width="200"> -->
+
+Dimana,
+* n = jumlah dataset
+* yi = nilai sebenarnya
+* ŷi = nilai prediksi
+
+Untuk menerapkannya ke dalam kode adalah dengan menggunakan fungsi [accuracy.mse](https://surprise.readthedocs.io/en/stable/accuracy.html#surprise.accuracy.mse) dari library surprise. Fungsi tersebut menerima satu parameter `prediction` sebagai inputan data dalam hal ini data train/test untuk mengevaluasi model.
+
+**Root Mean Squared Error (RMSE)**
+
+Root Mean Squared Error (RMSE) merupakan salah satu cara untuk mengevaluasi model regresi dengan mengukur tingkat akurasi hasil perkiraan suatu model. RMSE dihitung dengan mengkuadratkan error (prediksi – observasi) dibagi dengan jumlah data (= rata-rata), lalu diakarkan.
+
+Nilai RMSE rendah menunjukkan bahwa variasi nilai yang dihasilkan oleh suatu model prakiraan mendekati variasi nilai obeservasinya. RMSE menghitung seberapa berbedanya seperangkat nilai. Semakin kecil nilai RMSE, semakin dekat nilai yang diprediksi dan diamati.
+
+Kelebihan dari RMSE yaitu memiliki tingkat sensitivitas yang cukup tinggi. Sedangkan kekurangannya RMSE tidak menggambarkan kesalahan rata-rata saja namun memiliki implikasi lain yang lebih sulit untuk diurai dan dipahami.
+
+![RMSE](https://programmerah.com/wp-content/uploads/2020/11/20190714113817886.png)
+<!-- <img src="https://programmerah.com/wp-content/uploads/2020/11/20190714113817886.png" width="200"> -->
+
+Dimana,
+* n = jumlah dataset
+* yi = nilai sebenarnya
+* ŷi = nilai prediksi
+
+Untuk menerapkannya ke dalam kode adalah dengan menggunakan fungsi [accuracy.rmse](https://surprise.readthedocs.io/en/stable/accuracy.html#surprise.accuracy.rmse) dari library surprise. Fungsi tersebut menerima satu parameter `prediction` sebagai inputan data dalam hal ini data train/test untuk mengevaluasi model.
+
+### Evaluation Model dengan Collaborative Filtering
